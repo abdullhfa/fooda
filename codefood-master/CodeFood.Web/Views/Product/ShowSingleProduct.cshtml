@@ -1,0 +1,29 @@
+﻿@model ProductViewModel
+
+@{
+    ViewBag.Title = Model.Name!;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="products-heading">
+            <h2>@Model.Name</h2>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3">
+    <div>
+        <img src="/images/@Model.ImagePath" alt="">
+    </div>
+    <div>
+        @Html.Raw(Model.Description)
+    </div>
+    <p class="price">From: £@Model.Price</p>
+    <div>
+        <a class="view-link shutter" 
+           style="margin: 0px 0px 10px 0px" 
+           asp-area="" asp-controller="" 
+           asp-action="" asp-route-id="@Model.Id">Add to cart</a>
+    </div>
+</div>

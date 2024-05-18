@@ -1,0 +1,28 @@
+﻿@{
+    List<ProductViewModel> products = ViewBag.Products;
+}
+
+<div class="cart dropdown">
+    @*@if (products.Any())
+    {
+        <a data-toggle="dropdown" href="#">Cart(@products.Count)</a>
+        <div class="dropdown-menu dropup">
+            <span class="caret"></span>
+            <ul class="media-list">
+                @foreach (var product in products)
+                {
+                    <li class="media">
+                        <img class="pull-left" src="~/images/@product.ImagePath" alt="">
+                        <div class="media-body">
+                            <h6>
+                                @product.Name
+                                <span>$@product.Price</span>
+                            </h6>
+                        </div>
+                    </li>
+                }
+            </ul>
+            <button class="btn btn-primary btn-sm">Checkout</button>
+        </div>  
+    }*@
+</div>

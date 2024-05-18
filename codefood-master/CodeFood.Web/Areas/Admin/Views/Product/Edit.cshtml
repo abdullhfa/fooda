@@ -1,0 +1,50 @@
+﻿@model Product
+@{
+    string strTitle = "Edit product";
+    ViewBag.Title = strTitle;
+}
+
+<script src="~/lib/ckeditor/ckeditor.js"></script>
+
+<div>
+    <h1>@strTitle</h1>
+    <div>
+        <form asp-area="Admin" asp-controller="Product" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="DateAdded" />
+            <input type="hidden" asp-for="ImagePath" />
+
+            <div asp-validation-summary="ModelOnly"></div>
+            <div>
+                <label asp-for="Name"></label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div>
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description"></textarea>
+                <span asp-validation-for="Description"></span>
+            </div>
+            <div>
+                <label asp-for="Price"></label>
+                <input asp-for="Price" />
+                <span asp-validation-for="Price"></span>
+            </div>
+            <div>
+                <label asp-for="ImagePath"></label>
+                <input type="file" name="imageFile" id="imageFile" />
+                <div>
+                    <img src="~/images/@Model.ImagePath" />
+                </div>
+            </div>
+            <input type="submit" value="Save changes" />
+        </form>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Description)');
+        newCKEdit.updateElement();
+    }
+</script>

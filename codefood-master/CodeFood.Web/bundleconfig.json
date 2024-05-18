@@ -1,0 +1,31 @@
+[
+  {
+    "outputFileName": "wwwroot/bundles/site.min.css",
+    "inputFiles": [
+      "wwwroot/css/nivo-slider.css",
+      "wwwroot/css/owl.carousel.css",
+      "wwwroot/css/owl.theme.css",
+      "wwwroot/css/bootstrap.min.css",
+      "wwwroot/css/font-awesome.min.css",
+      "wwwroot/css/responsive.css",
+      "wwwroot/css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/bundles/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/jquery.min.js",
+      "wwwroot/js/bootstrap.min.js",
+      "wwwroot/js/jquery.nivo.slider.js",
+      "wwwroot/js/owl.carousel.min.js",
+      "wwwroot/js/jquery.nicescroll.js",
+      "wwwroot/js/jquery.scrollUp.min.js",
+      "wwwroot/js/main.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

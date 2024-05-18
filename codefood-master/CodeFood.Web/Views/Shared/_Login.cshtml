@@ -1,0 +1,33 @@
+﻿@if (User.Identity!.IsAuthenticated)
+{
+    <ul class="login-cart">
+        <li>
+            <a asp-area="" asp-controller="" asp-action="" asp-route-returnUrl="@ViewBag.ReturnUrl">
+                Profile
+            </a>
+        </li>
+        <li>
+            <partial name="_Cart"/>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@ViewBag.ReturnUrl">
+                Logout
+            </a>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="login-cart">
+        <li>
+            <a asp-area="" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@ViewBag.ReturnUrl">
+                Login
+            </a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Account" asp-action="Register" asp-route-returnUrl="@ViewBag.ReturnUrl">
+                Register
+            </a>
+        </li>
+    </ul>
+}

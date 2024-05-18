@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProductViewModel>
+
+@{
+    string pageTitle = "Admin dashboard";
+    ViewBag.Title = pageTitle;
+}
+
+<div>
+    <h1>@pageTitle</h1>
+    <div>
+        <h3>Products</h3>
+        <div>
+            <form asp-area="Admin" asp-controller="Product" asp-action="Create" method="get">
+                <input style="margin: 0px 0px 10px 0px" type="submit" value="Create a new product" />
+            </form>
+        </div>
+        <section id="products">
+            <div class="row">
+                @if (Model.Any())
+                {
+                    @foreach (var entity in Model)
+                    {
+                        <div class="col-md-3">
+                            <div class="products">
+                                <a>
+                                    <img src="/images/@entity.ImagePath" alt="">
+                                </a>
+                                <a asp-area="" asp-controller="Product" asp-action="ShowSingleProduct" asp-route-id="@entity.Id">
+                                    <h4>@entity.Name</h4>
+                                </a>
+                                <p class="price">From: £@entity.Price</p>
+
+                                <a class="view-link shutter" 
+                                   style="margin: 0px 0px 10px 0px" 
+                                   asp-area="Admin" asp-controller="Product" 
+                                   asp-action="Edit" asp-route-id="@entity.Id">Edit</a>
+
+                                <a class="view-link shutter" 
+                                   asp-area="Admin" asp-controller="Product" 
+                                   asp-action="Delete" asp-route-id="@entity.Id">Remove</a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </section>
+    </div>
+    <div>
+        <form asp-area="" asp-controller="Account" asp-action="Logout">
+            <input type="submit" value="Logout" />
+        </form>
+    </div>
+</div>
